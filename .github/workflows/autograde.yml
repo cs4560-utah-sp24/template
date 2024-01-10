@@ -23,16 +23,22 @@ jobs:
           ref: main
       - name: "Install dependencies"
         run: sh autotester/setup.sh
-      - run: python3 autotester/test.py --gh --index 1
+      - run: python3 autotester/run.py --gh --index 1
         timeout-minutes: 5
-      - run: python3 autotester/test.py --gh --index 2
+        if: true
+      - run: python3 autotester/run.py --gh --index 2
         timeout-minutes: 5
-      - run: python3 autotester/test.py --gh --index 3
+        if: true
+      - run: python3 autotester/run.py --gh --index 3
         timeout-minutes: 5
-      - run: python3 autotester/test.py --gh --index 4
+        if: true
+      - run: python3 autotester/run.py --gh --index 4
         timeout-minutes: 5
-      - run: python3 autotester/test.py --gh --index 5
+        if: true
+      - run: python3 autotester/run.py --gh --index 5
         timeout-minutes: 5
+        if: true
       - name: Generate summary
         run: python3 autotester/summarize.py > $GITHUB_STEP_SUMMARY
+        if: true
 
