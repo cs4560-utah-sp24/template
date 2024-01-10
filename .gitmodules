@@ -1,0 +1,3 @@
+[submodule "test"]
+	path = test
+	url = git@github.com:cs4560-utah-sp24/test.git
