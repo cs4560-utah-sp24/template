@@ -21,7 +21,7 @@ jobs:
           repository: cs4560-utah-sp24/test
           path: autotester
           ref: main
-      - name: Install dependencies
+      - name: "Install dependencies"
       	run: sh autotester/setup.sh
       - run: python3 autotester/test.py --gh --index 1
         timeout-minutes: 5
