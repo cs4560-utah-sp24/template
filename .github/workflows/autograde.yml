@@ -19,26 +19,26 @@ jobs:
         name: "Download grader scripts"
         with:
           repository: cs4560-utah-sp24/test
-          path: autotester
+          path: autograder
           ref: main
       - name: "Install dependencies"
-        run: sh autotester/setup.sh
-      - run: python3 autotester/run.py --gh --index 1
+        run: sh autograder/setup.sh
+      - run: python3 autograder/run.py --gh --index 1
         timeout-minutes: 5
         if: true
-      - run: python3 autotester/run.py --gh --index 2
+      - run: python3 autograder/run.py --gh --index 2
         timeout-minutes: 5
         if: true
-      - run: python3 autotester/run.py --gh --index 3
+      - run: python3 autograder/run.py --gh --index 3
         timeout-minutes: 5
         if: true
-      - run: python3 autotester/run.py --gh --index 4
+      - run: python3 autograder/run.py --gh --index 4
         timeout-minutes: 5
         if: true
-      - run: python3 autotester/run.py --gh --index 5
+      - run: python3 autograder/run.py --gh --index 5
         timeout-minutes: 5
         if: true
       - name: Generate summary
-        run: python3 autotester/summarize.py > $GITHUB_STEP_SUMMARY
+        run: python3 autograder/summarize.py > $GITHUB_STEP_SUMMARY
         if: true
 
