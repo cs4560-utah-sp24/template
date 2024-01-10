@@ -1,0 +1,38 @@
+name: Autograde your browser
+
+on: [push]
+
+jobs:
+  main:
+    name: "Autograde your browser"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - uses: actions/checkout@v3
+        name: "Download grader scripts"
+        with:
+          repository: cs4560-utah-sp24/test
+          path: autotester
+          ref: main
+      - name: Install dependencies
+      	run: sh autotester/setup.sh
+      - run: python3 autotester/test.py --gh --index 1
+        timeout-minutes: 5
+      - run: python3 autotester/test.py --gh --index 2
+        timeout-minutes: 5
+      - run: python3 autotester/test.py --gh --index 3
+        timeout-minutes: 5
+      - run: python3 autotester/test.py --gh --index 4
+        timeout-minutes: 5
+      - run: python3 autotester/test.py --gh --index 5
+        timeout-minutes: 5
+      - name: Generate summary
+      	run: python3 autotester/summarize.py > $GITHUB_STEP_SUMMARY
+    
