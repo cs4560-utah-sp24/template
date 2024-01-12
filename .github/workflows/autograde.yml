@@ -24,7 +24,7 @@ jobs:
       - name: "Install dependencies"
         run: sh autograder/setup.sh
       - name: "Find exercise tests"
-        run: python3 autograder/run --index gh
+        run: python3 autograder/run.py --index gh
       - run: python3 autograder/run.py --gh --index 1
         timeout-minutes: 5
         if: ${{ always() }}
