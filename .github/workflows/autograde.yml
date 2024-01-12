@@ -28,23 +28,23 @@ jobs:
       - run: python3 autograder/run.py --gh --index 1
         timeout-minutes: 5
         if: ${{ always() }}
-	name: ${{ env.HWPART1 }}
+        name: ${{ env.HWPART1 }}
       - run: python3 autograder/run.py --gh --index 2
         timeout-minutes: 5
         if: ${{ always() }}
-	name: ${{ env.HWPART2 }}
+        name: ${{ env.HWPART2 }}
       - run: python3 autograder/run.py --gh --index 3
         timeout-minutes: 5
         if: ${{ always() }}
-	name: ${{ env.HWPART3 }}
+        name: ${{ env.HWPART3 }}
       - run: python3 autograder/run.py --gh --index 4
         timeout-minutes: 5
         if: ${{ always() }}
-	name: ${{ env.HWPART4 }}
+        name: ${{ env.HWPART4 }}
       - run: python3 autograder/run.py --gh --index 5
         timeout-minutes: 5
         if: ${{ always() }}
-	name: ${{ env.HWPART5 }}
+        name: ${{ env.HWPART5 }}
       - name: Generate summary
         run: python3 autograder/summarize.py > $GITHUB_STEP_SUMMARY
         if: ${{ always() }}
